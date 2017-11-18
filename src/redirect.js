@@ -147,6 +147,7 @@ const types = [
 ];
 
 export default url => {
+  url = url.split('')[0].toLowerCase().join('');
   if (types.includes(url)) {
     window.location.replace(
       'https://babeljs.io/docs/core-packages/babel-types/#api' +

@@ -37,11 +37,13 @@ exports.start = new Promise(function(resolve, reject) {
 
 exports.log = function (json) {
   console.log(send.readyState);
-  if (send.readyState === 1) {
-    q.push(json)
-    send.send(CircularJSON.stringify(q));
-    q = [];
-  }else{
-    q.push(json);
-  }
+  q.push(json);
+  const interval = setInterval(function(){
+    if (send.readyState === 1) {
+      q.push(json)
+      send.send(CircularJSON.stringify(q));
+      q = [];
+      clearInterval(interval);
+    }
+  }, 500);
 }
