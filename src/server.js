@@ -23,23 +23,21 @@ exports.start = new Promise(function(resolve, reject) {
     const location = url.parse(req.url, true);
 
     ws.on('message', function incoming(message) {
-      console.log('received: %s', message);
+      //console.log('received: %s', message);
     });
 
     send = ws
   });
 
   server.listen(8080, function listening() {
-    console.log('Listening on %d', server.address().port);
+    console.log('Debugger listening on %d', server.address().port);
     resolve(true);
   });
 });
 
 exports.log = function (json) {
-  console.log(send);
   q.push(json);
   const interval = setInterval(function(){
-    console.log(send);
     if (send && send.readyState === 1) {
       q.push(json)
       send.send(CircularJSON.stringify(q));
