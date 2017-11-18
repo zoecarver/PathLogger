@@ -23,8 +23,30 @@ const theme = {
   base0F: '#be643c',
 };
 
-export default json =>
+export default () => {
+  let json;
+  const connection = new WebSocket('ws://localhost:8080/', ['soap', 'xmpp']);
+
+  connection.onopen = function () {
+    connection.send('Ping');
+  };
+
+  connection.onerror = function (error) {
+    console.log('WebSocket Error ' + error);
+  };
+
+  connection.onmessage = function (e) {
+    console.log('Recived: ' + e.data);
+    json = JSON.parse(e.data);
+    console.log(json);
+    render(
+      <JSONTree data={json} theme={theme} invertTheme={true} hideRoot={true} />,
+      document.getElementById('root')
+    );
+  };
+
   render(
-    <JSONTree data={json} theme={theme} invertTheme={true} hideRoot={true} />,
+    <JSONTree data={{state: 'loading'}} theme={theme} invertTheme={true} hideRoot={true} />,
     document.getElementById('root')
   );
+}

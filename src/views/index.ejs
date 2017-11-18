@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <style>
+      body {
+        font-family: SF UI Text,Roboto,Helvetica Neue,Helvetica,sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    </style>
+    <script>
+    let json = "<%= json %>";
+    console.log(json);
+    json = JSON.parse(json)
+    </script>
+  </head>
+  <body>
+    <div id="root" style='width:100%; height:100%;'></div>
+    <script src="/static/bundle.js" ></script>
+  </body>
+</html>
