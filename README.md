@@ -9,7 +9,7 @@ Not yet published to npm.
 1. `$ npm i git@github.com:pudility/PathLogger.git`
 2. Import
 ```js
-import PathLogger from 'PathLogger';
+import * as PathLogger from 'PathLogger';
 ```
 3. Start the server
 ```js
