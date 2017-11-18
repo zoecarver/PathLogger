@@ -4,6 +4,7 @@ const url = require('url');
 const WebSocket = require('ws');
 const path = require('path');
 const app = express();
+const CircularJSON = require('circular-json');
 
 let q = [];
 let send = null;
@@ -20,7 +21,7 @@ exports.start = new Promise(function(resolve, reject) {
 
   wss.on('connection', function connection(ws, req) {
     const location = url.parse(req.url, true);
-    
+
     ws.on('message', function incoming(message) {
       console.log('received: %s', message);
     });
@@ -38,7 +39,7 @@ exports.log = function (json) {
   console.log(send.readyState);
   if (send.readyState === 1) {
     q.push(json)
-    send.send(JSON.stringify(q));
+    send.send(CircularJSON.stringify(q));
     q = [];
   }else{
     q.push(json);
