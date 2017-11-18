@@ -8,7 +8,7 @@ var config = {
   resolveLoader: {
     moduleExtensions: ['-loader']
   },
-  entry: APP_DIR + '/index.jsx',
+  entry: APP_DIR + '/index.js',
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
