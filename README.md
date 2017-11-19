@@ -2,11 +2,11 @@
 For babel.
 
 ### What is it
-This makes it easier to read and debug the path of a babel visitor.
+This makes it easier to read and debug the path of a babel visitor. It also allows you to quickly open the docs for specific types by just clicking on them.
 
 ### How to use
 Not yet published to npm.
-1. `$ npm i git@github.com:pudility/PathLogger.git`
+1. `$ npm i https://github.com/pudility/PathLogger`
 2. Import
 ```js
 import * as PathLogger from 'PathLogger';
